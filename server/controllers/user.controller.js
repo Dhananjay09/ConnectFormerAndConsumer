@@ -43,12 +43,13 @@ const userByID = async (req, res, next, id) => {
 const read = (req, res) => {
   req.profile.hashed_password = undefined
   req.profile.salt = undefined
+  console.log(req.profile);
   return res.json(req.profile)
 }
 
 const list = async (req, res) => {
   try {
-    let users = await User.find().select('name email updated created')
+    let users = await User.find().select('name email pin address updated created ')
     res.json(users)
   } catch (err) {
     return res.status(400).json({

@@ -1,12 +1,14 @@
 import { signout } from './api-auth.js'
-
 const auth = {
   isAuthenticated() {
     if (typeof window == "undefined")
       return false
-
-    if (sessionStorage.getItem('jwt'))
-      return JSON.parse(sessionStorage.getItem('jwt'))
+    if (sessionStorage.getItem('jwt')){
+      {
+        console.log(sessionStorage.getItem('jwt'))
+        return JSON.parse(sessionStorage.getItem('jwt'))
+      }
+    }
     else
       return false
   },

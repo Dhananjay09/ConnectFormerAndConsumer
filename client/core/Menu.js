@@ -20,6 +20,7 @@ const Menu = withRouter(({history}) => (
       <Typography variant="h4" color="inherit">
         Best products
       </Typography>
+      
       <Link to="/">
         <IconButton aria-label="Home" style={isActive(history, "/")}>
           <HomeIcon  fontSize="large" color="secondary"/>
@@ -38,18 +39,19 @@ const Menu = withRouter(({history}) => (
         </span>)
       }
       {
+        
         auth.isAuthenticated() && (<span>
           <Link to={"/user/" + auth.isAuthenticated().user._id}>
             <Button style={isActive(history, "/user/" + auth.isAuthenticated().user._id)}>My Profile</Button>
           </Link>
-          <Link to="/users">
-            <Button style={isActive(history, "/user/" )}>All Users</Button>
+          <Link to={"/users/" + auth.isAuthenticated().user.pin}>
+            <Button style={isActive(history, "/users/" + auth.isAuthenticated().user.pin)}>All Users</Button>
           </Link>
-
           <Button background="red" onClick={() => {
               auth.clearJWT(() => history.push('/'))
             }}>Sign out</Button>
         </span>)
+        
       }
     </Toolbar>
   </AppBar>

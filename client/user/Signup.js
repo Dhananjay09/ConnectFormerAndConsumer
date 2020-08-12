@@ -14,7 +14,6 @@ import DialogContentText from '@material-ui/core/DialogContentText'
 import DialogTitle from '@material-ui/core/DialogTitle'
 import {create} from './api-user.js'
 import {Link} from 'react-router-dom'
-
 const useStyles = makeStyles(theme => ({
   card: {
     maxWidth: 600,
@@ -48,6 +47,7 @@ export default function Signup (){
     password: '',
     email: '',
     pin:'',
+    number: '',
     address:'',
     open: false,
     error: ''
@@ -63,7 +63,8 @@ export default function Signup (){
       email: values.email || undefined,
       password: values.password || undefined,
       pin: values.pin || undefined,
-      address: values.address || undefined
+      address: values.address || undefined,
+      number: values.number || undefined
     }
     create(user).then((data) => {
       if (data.error) {
@@ -82,9 +83,11 @@ export default function Signup (){
           </Typography>
           <TextField id="name" label="Name" className={classes.textField} value={values.name} onChange={handleChange('name')} margin="normal"/><br/>
           <TextField id="email" type="email" label="Email" className={classes.textField} value={values.email} onChange={handleChange('email')} margin="normal"/><br/>
+          <TextField id="number" type="text" label="Contact Number" className={classes.textField} value={values.number} onChange={handleChange('number')} margin="normal"/>
           <TextField id="pin" label="PIN" className={classes.textField} value={values.pin} onChange={handleChange('pin')} margin="normal"/><br/>
           <TextField id="address" type="text" label="Address" className={classes.textField} value={values.address} onChange={handleChange('address')} margin="normal"/><br/>
           <TextField id="password" type="password" label="Password" className={classes.textField} value={values.password} onChange={handleChange('password')} margin="normal"/>
+
           <br/> {
             values.error && (<Typography component="p" color="error">
               <Icon color="error" className={classes.error}>error</Icon>

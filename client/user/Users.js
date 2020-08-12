@@ -12,13 +12,18 @@ import Typography from '@material-ui/core/Typography'
 import ArrowForward from '@material-ui/icons/Visibility'
 import Person from '@material-ui/icons/Person'
 import {Link} from 'react-router-dom'
+import Card from '@material-ui/core/Card'
 import {list} from './api-user.js'
+import {read} from './api-user.js'
+
 
 const useStyles = makeStyles(theme => ({
   root: theme.mixins.gutters({
     padding: theme.spacing(2),
     margin: theme.spacing(4),
-    borderRadius: "40px"
+    borderRadius: "10px",
+    width: 500,
+    
   }),
   title: {
     margin: `${theme.spacing(4)}px 10 ${theme.spacing(2)}px`,
@@ -29,10 +34,11 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export default function Users() { 
+export default function Users({ match }) { 
   const classes = useStyles()
   const [users, setUsers] = useState([])
 
+  const userpin=match.params.pin;
   useEffect(() => {
     const abortController = new AbortController()
     const signal = abortController.signal
@@ -48,16 +54,17 @@ export default function Users() {
     return function cleanup(){
       abortController.abort()
     }
-  }, [])
-
-
+  }, [match.params.userId])
+  
     return (
+      <Card style={{display: 'flex', flexDirection: 'row'}}>
       <Paper className={classes.root} elevation={4}>
         <Typography variant="h4" className={classes.title}>
           All Users
         </Typography>
         <List sparse className={classes.list}>
          {users.map((item, i) => {
+           
           return <Link to={"/user/" + item._id} key={i}>
                     <ListItem button>
                         <ListItemAvatar className={classes.avatar}>
@@ -75,6 +82,37 @@ export default function Users() {
                })
              }
         </List>
+        
       </Paper>
+      <Paper className={classes.root} elevation={4}>
+        <Typography variant="h4" className={classes.title}>
+          Usres Near Me
+        </Typography>
+        <List sparse className={classes.list}>
+         {users.map((item, i) => {
+           if(item.pin==userpin){
+          return <Link to={"/user/" + item._id} key={i}>
+                    <ListItem button>
+                        <ListItemAvatar className={classes.avatar}>
+                            <Avatar src={'/api/users/photo/'+item._id}/>
+                        </ListItemAvatar>
+                      
+                      <ListItemText primary={item.name}/>
+                      <ListItemSecondaryAction>
+                      <IconButton>
+                          <ArrowForward/>
+                      </IconButton>
+                      </ListItemSecondaryAction>
+                    </ListItem>
+                 </Link>
+               
+           }
+           
+              })
+             }
+        </List>
+        
+      </Paper>
+      </Card>
     )
 }

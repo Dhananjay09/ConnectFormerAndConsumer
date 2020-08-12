@@ -18,7 +18,6 @@ import {Redirect, Link} from 'react-router-dom'
 import FollowProfileButton from './../user/FollowProfileButton'
 import ProfileTabs from './../user/ProfileTabs'
 import {listByUser} from './../post/api-post.js'
-
 const useStyles = makeStyles(theme => ({
   root: theme.mixins.gutters({
     maxWidth: 600,
@@ -50,8 +49,7 @@ export default function Profile({ match }) {
 
   useEffect(() => {
     const abortController = new AbortController()
-    const signal = abortController.signal
-  
+    const signal = abortController.signal 
     read({
       userId: match.params.userId
     }, {t: jwt.token}, signal).then((data) => {
@@ -148,6 +146,10 @@ export default function Profile({ match }) {
              
             <ListItemText primary={ "PIN:   " +(values.user.pin)} secondary={"Address:  "+(values.user.address)}/>
             </ListItem>
+            <ListItem>
+             
+             <ListItemText primary={ "Contact Number:   " +(values.user.number)} />
+             </ListItem>
 
         </List>
         <ProfileTabs user={values.user} posts={posts} removePostUpdate={removePost}/>

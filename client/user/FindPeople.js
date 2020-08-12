@@ -88,7 +88,7 @@ export default function FindPeople() {
     setValues({...values, open: false })
   }
     return (<div>
-      <Paper className={classes.root} elevation={4}>
+      <Paper className={classes.root} elevation={10}>
         <List>
           {values.users.map((item, i) => {
               return <span key={i}>
