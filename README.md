@@ -1,12 +1,4 @@
-# MERN Social 2.0
-- *Looking for the first edition code? [Check here](https://github.com/shamahoque/mern-social/tree/master)*
-
 A simple social media application with users, posts, likes and comments - developed using React, Node, Express and MongoDB. 
-
-![MERN Social](https://s3.amazonaws.com/mernbook/git+/social.png "MERN Social")
-
-### [Live Demo](http://social2.mernbook.com/ "MERN Social")
-
 #### What you need to run this code
 1. Node (13.12.0)
 2. NPM (6.14.4) or Yarn (1.22.4)
@@ -53,6 +45,5 @@ Things you'll learn in this book:
 - Set up and use React 360 to develop user interfaces with VR capabilities
 - Make your MERN stack applications reliable and scalable with industry best practices
 
-If you feel this book is for you, get your [copy](https://www.amazon.com/dp/1839215410) today!
 
 ---
