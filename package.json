@@ -1,9 +1,9 @@
 {
-  "name": "mern-social",
+  "name": "connectformerconsumer",
   "version": "2.0.0",
   "description": "A MERN stack based social media application",
-  "author": "Shama Hoque",
-  "license": "MIT",
+  "author": "Dhananjay Singh",
+  "license": "Dhananjay",
   "keywords": [
     "react",
     "express",
@@ -34,7 +34,7 @@
     "@babel/preset-react": "7.9.4",
     "babel-loader": "8.1.0",
     "file-loader": "6.0.0",
-    "nodemon": "2.0.2",
+    "nodemon": "^2.0.4",
     "webpack": "4.42.1",
     "webpack-cli": "3.3.11",
     "webpack-dev-middleware": "3.7.2",
