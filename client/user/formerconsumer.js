@@ -27,22 +27,25 @@ const useStyles = makeStyles(theme => ({
   }),
   title: {
     margin: `${theme.spacing(4)}px 10 ${theme.spacing(2)}px`,
-    background: "#BABBC6"
+    background: "#BABBC6",
+    justifyContent: "center"
+
   },
   list:{
-    background: "#ffffE2"
+    background: "#fffff2"
   }
 }))
 
-export default function Users({ match }) { 
+export default function formerconsumer({ match }) { 
+    
   const classes = useStyles()
   const [users, setUsers] = useState([])
 
-  const userpin=match.params.pin;
+  const type=match.params.pin;
+
   useEffect(() => {
     const abortController = new AbortController()
     const signal = abortController.signal
-
     list(signal).then((data) => {
       if (data && data.error) {
         console.log(data.error)
@@ -60,11 +63,11 @@ export default function Users({ match }) {
       <Card style={{display: 'flex', flexDirection: 'row', flexWrap: 'wrap'}}>
       <Paper className={classes.root} elevation={4}>
         <Typography variant="h4" className={classes.title}>
-          All Users
+          Consumers
         </Typography>
         <List sparse className={classes.list}>
          {users.map((item, i) => {
-           
+           if(item.type!="farmer"){
           return <Link to={"/user/" + item._id} key={i}>
                     <ListItem button>
                         <ListItemAvatar className={classes.avatar}>
@@ -79,6 +82,7 @@ export default function Users({ match }) {
                       </ListItemSecondaryAction>
                     </ListItem>
                  </Link>
+         }
                })
              }
         </List>
@@ -86,11 +90,12 @@ export default function Users({ match }) {
       </Paper>
       <Paper className={classes.root} elevation={4}>
         <Typography variant="h4" className={classes.title}>
-          Usres Near Me
+          formers
         </Typography>
         <List sparse className={classes.list}>
          {users.map((item, i) => {
-           if(item.pin==userpin){
+             console.log(item)
+           if(item.type=="farmer"){
           return <Link to={"/user/" + item._id} key={i}>
                     <ListItem button>
                         <ListItemAvatar className={classes.avatar}>

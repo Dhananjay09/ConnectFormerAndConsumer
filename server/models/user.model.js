@@ -28,6 +28,11 @@ const UserSchema = new mongoose.Schema({
     trim: true,
     required: 'Address is required'
   },
+  type: {
+    type: String,
+    trim: true,
+    required: 'Type of Account is required'
+  },
   hashed_password: {
     type: String,
     required: "Password is required"

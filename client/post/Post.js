@@ -124,11 +124,6 @@ export default function Post (props){
             subheader={(new Date(props.post.created)).toDateString()}
             className={classes.cardHeader}
           />
-        <CardContent className={classes.cardContent}>
-          <Typography component="p" className={classes.text}>
-            {props.post.text}
-          </Typography>
-          </CardContent>
           <CardMedia>
           {props.post.photo &&
             
@@ -167,13 +162,17 @@ export default function Post (props){
        
         <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
-          <Typography paragraph>Comments:</Typography>
-          <Typography paragraph>
-          <Comments postId={props.post._id} comments={values.comments} updateComments={updateComments}/>
-          
+        <Typography component="p" className={classes.text}>
+            {props.post.text}
           </Typography>
-
-   
+          <Typography>
+           <b> Amount Available{"   "+ props.post.amount}</b>
+          </Typography>
+          <Typography>
+           <b>{"   "+ props.post.rate+" Rs/kg"}</b>
+          </Typography>
+          <Typography paragraph>
+          <Comments postId={props.post._id} comments={values.comments} updateComments={updateComments}/></Typography>   
         </CardContent>
       </Collapse>
       </Card>

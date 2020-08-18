@@ -24,7 +24,7 @@ export default function ProfileTabs ( props ){
             textColor="primary"
             variant="fullWidth"
           >
-            <Tab label="Posts" />
+            <Tab label="Products" />
             <Tab label="Following" />
             <Tab label="Followers" />
           </Tabs>

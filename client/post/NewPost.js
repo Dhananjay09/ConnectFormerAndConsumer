@@ -61,6 +61,8 @@ export default function NewPost (props){
   const [values, setValues] = useState({
     text: '',
     photo: '',
+    amount: '',
+    rate: '',
     error: '',
     user: {}
   })
@@ -71,6 +73,8 @@ export default function NewPost (props){
   const clickPost = () => {
     let postData = new FormData()
     postData.append('text', values.text)
+    postData.append('amount', values.amount)
+    postData.append('rate', values.rate)
     postData.append('photo', values.photo)
     create({
       userId: jwt.user._id
@@ -80,7 +84,7 @@ export default function NewPost (props){
       if (data.error) {
         setValues({...values, error: data.error})
       } else {
-        setValues({...values, text:'', photo: ''})
+        setValues({...values, text:'', rate: '', amount: '', photo: ''})
         props.addUpdate(data)
       }
     })
@@ -103,13 +107,25 @@ export default function NewPost (props){
           />
       <CardContent className={classes.cardContent}>
         <TextField
-            placeholder="Share your thoughts ..."
+            placeholder="Detail of the product...."
             multiline
-            rows="3"
+            
             value={values.text}
             onChange={handleChange('text')}
             className={classes.textField}
             margin="normal"
+        />
+        <TextField
+        placeholder="Cost/kg"
+        value={values.rate}
+        className={classes.textField}
+        onChange={handleChange('rate')}
+        />
+        <TextField
+        placeholder="Amount available"
+        value={values.amount}
+        onChange={handleChange('amount')}
+        className={classes.textField}
         />
         <input accept="image/*" onChange={handleChange('photo')} className={classes.input} id="icon-button-file" type="file" />
         <label htmlFor="icon-button-file">

@@ -105,7 +105,6 @@ export default function Profile({ match }) {
     updatedPosts.splice(index, 1)
     setPosts(updatedPosts)
   }
-
     const photoUrl = values.user._id
               ? `/api/users/photo/${values.user._id}?${new Date().getTime()}`
               : '/api/users/defaultphoto'
@@ -122,7 +121,7 @@ export default function Profile({ match }) {
             <ListItemAvatar>
               <Avatar src={photoUrl} className={classes.bigAvatar}/>
             </ListItemAvatar>
-            <ListItemText primary={values.user.name} secondary={values.user.email} />
+            <ListItemText primary={values.user.name +"(" +values.user.type+")"} secondary={values.user.email} />
           
              {
              auth.isAuthenticated().user && auth.isAuthenticated().user._id == values.user._id

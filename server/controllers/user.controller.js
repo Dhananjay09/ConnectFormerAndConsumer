@@ -49,7 +49,7 @@ const read = (req, res) => {
 
 const list = async (req, res) => {
   try {
-    let users = await User.find().select('name email pin address updated created ')
+    let users = await User.find().select('name email pin address updated created type')
     res.json(users)
   } catch (err) {
     return res.status(400).json({

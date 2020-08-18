@@ -15,7 +15,7 @@ const isActive = (history, path) => {
     return {color: 'black'}
 }
 const Menu = withRouter(({history}) => (
-  <AppBar position="sticky" color="default">
+  <AppBar position="sticky" color="white">
     <Toolbar>
       <Typography variant="h4" color="inherit">
         Best products
@@ -23,7 +23,7 @@ const Menu = withRouter(({history}) => (
       
       <Link to="/">
         <IconButton aria-label="Home" style={isActive(history, "/")}>
-          <HomeIcon  fontSize="large" color="secondary"/>
+          <HomeIcon  fontSize="large" color="primary"/>
         </IconButton>
       </Link>
       {
@@ -47,6 +47,14 @@ const Menu = withRouter(({history}) => (
           <Link to={"/users/" + auth.isAuthenticated().user.pin}>
             <Button style={isActive(history, "/users/" + auth.isAuthenticated().user.pin)}>All Users</Button>
           </Link>
+          <Link to={"/farmerconsumers/" + auth.isAuthenticated().user.type}>
+            <Button style={isActive(history, "/users/" + auth.isAuthenticated().user.pin)}>Farmer/Consumers</Button>
+          </Link>
+          <Link to={"/follow"}>
+            <Button style={isActive(history, "/follow/")}>User to follow</Button>
+          </Link>
+          
+
           <Button background="red" onClick={() => {
               auth.clearJWT(() => history.push('/'))
             }}>Sign out</Button>

@@ -7,7 +7,8 @@ import auth from './../auth/auth-helper'
 import PostList from './PostList'
 import {listNewsFeed} from './api-post.js'
 import NewPost from './NewPost'
-
+import AddIcon from '@material-ui/icons/Add';
+import Button from '@material-ui/core/Button'
 const useStyles = makeStyles(theme => ({
   card: {
     margin: 'auto',
@@ -20,10 +21,11 @@ const useStyles = makeStyles(theme => ({
     fontSize: '1em'
   },
   media: {
-    minHeight: 330
+    minHeight: 300
   }
 }))
 export default function Newsfeed () {
+  const [create, setCreate]=useState(false)
   const classes = useStyles()
   const [posts, setPosts] = useState([])
   const jwt = auth.isAuthenticated()
@@ -46,7 +48,6 @@ export default function Newsfeed () {
     return function cleanup(){
       abortController.abort()
     }
-
   }, [])
 
   const addPost = (post) => {
@@ -63,12 +64,11 @@ export default function Newsfeed () {
 
     return (
       <Card className={classes.card}>
-        
         <Divider/>
-        <NewPost addUpdate={addPost}/>
+      <Button color="primary" onClick={()=> setCreate(!create)}><AddIcon style={{ fontSize: 40 }}/></Button>
+       {create && <NewPost addUpdate={addPost}/>} 
         <Divider/>
-        <PostList removeUpdate={removePost} posts={posts}/>
+        <PostList removeUpdate={removePost} posts={posts}/> 
       </Card>
     )
 }
-

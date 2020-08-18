@@ -97,6 +97,7 @@ export default function FindPeople() {
                       <Avatar src={'/api/users/photo/'+item._id}/>
                   </ListItemAvatar>
                   <ListItemText primary={item.name}/>
+                 
                   <ListItemSecondaryAction className={classes.follow}>
                     <Link to={"/user/" + item._id}>
                       <IconButton variant="contained" color="secondary" className={classes.viewButton}>

@@ -4,6 +4,16 @@ const PostSchema = new mongoose.Schema({
     type: String,
     required: 'Text is required'
   },
+  rate:{
+    type: Number,
+    trim: true,
+    required: 'Cost is required'
+  },
+  amount:{
+    type: String,
+    trim: true,
+    required: 'Amount is required'
+  },
   photo: {
     data: Buffer,
     contentType: String

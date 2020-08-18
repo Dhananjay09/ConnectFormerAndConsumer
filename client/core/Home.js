@@ -4,13 +4,13 @@ import Card from '@material-ui/core/Card'
 import CardMedia from '@material-ui/core/CardMedia'
 import CardContent from '@material-ui/core/CardContent'
 import Typography from '@material-ui/core/Typography'
-import designed_by from './../assets/images/profile.png'
+import designed_by from './../assets/images/im1.jpg'
+import second from './../assets/images/im11.jpg'
+import third from './../assets/images/im6.jpg'
 import Grid from '@material-ui/core/Grid'
 import auth from './../auth/auth-helper'
 import FindPeople from './../user/FindPeople'
 import Newsfeed from './../post/Newsfeed'
-
-
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
@@ -63,26 +63,20 @@ export default function Home({history}){
                 <Typography variant="h6" className={classes.title}>
                   Home Page
                 </Typography>
-                <CardMedia className={classes.media} image={designed_by} title="Unicorn Bicycle"/>
+                <Typography type="body1" component="p">
+                    A plateform to get best agricultural products from farmers near the consumer.
+                </Typography>
+                <CardMedia className={classes.media} image={second} title="Unicorn Bicycle"/>
                 <CardContent>
                   <Typography type="body1" component="p">
-                    Welcome to the Application....... 
+                    Welcome.............
                   </Typography>
                 </CardContent>
               </Card>
             </Grid>
           </Grid>
         }
-        {defaultPage &&
-          <Grid container spacing={8}>
-            <Grid item xs={8} sm={7}>
-              <Newsfeed/>
-            </Grid>
-            <Grid item xs={6} sm={5}>
-              <FindPeople/>
-            </Grid>
-          </Grid>
-        }
+        {defaultPage &&  <Newsfeed/>   }
       </div>
     )
 }

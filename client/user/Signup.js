@@ -49,6 +49,7 @@ export default function Signup (){
     pin:'',
     number: '',
     address:'',
+    type: '',
     open: false,
     error: ''
   })
@@ -64,7 +65,8 @@ export default function Signup (){
       password: values.password || undefined,
       pin: values.pin || undefined,
       address: values.address || undefined,
-      number: values.number || undefined
+      number: values.number || undefined,
+      type: values.type || undefined
     }
     create(user).then((data) => {
       if (data.error) {
@@ -87,7 +89,7 @@ export default function Signup (){
           <TextField id="pin" label="PIN" className={classes.textField} value={values.pin} onChange={handleChange('pin')} margin="normal"/><br/>
           <TextField id="address" type="text" label="Address" className={classes.textField} value={values.address} onChange={handleChange('address')} margin="normal"/><br/>
           <TextField id="password" type="password" label="Password" className={classes.textField} value={values.password} onChange={handleChange('password')} margin="normal"/>
-
+          <TextField id="type" type="text" label="Account Type" className={classes.textField} value={values.type} onChange={handleChange('type')} margin="normal"/>
           <br/> {
             values.error && (<Typography component="p" color="error">
               <Icon color="error" className={classes.error}>error</Icon>
