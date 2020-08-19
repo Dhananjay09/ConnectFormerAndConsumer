@@ -39,11 +39,9 @@ const useStyles = makeStyles(theme => ({
     } 
   }
 }))
-
 export default function Home({history}){
   const classes = useStyles()
   const [defaultPage, setDefaultPage] = useState(false)
-
   useEffect(()=> {
     setDefaultPage(auth.isAuthenticated())
     const unlisten = history.listen (() => {
@@ -53,7 +51,6 @@ export default function Home({history}){
       unlisten()
     }
   }, [])
-
     return (
       <div className={classes.root}>
         { !defaultPage &&
@@ -66,7 +63,7 @@ export default function Home({history}){
                 <Typography type="body1" component="p">
                     A plateform to get best agricultural products from farmers near the consumer.
                 </Typography>
-                <CardMedia className={classes.media} image={second} title="Unicorn Bicycle"/>
+                {<CardMedia className={classes.media} image={second} title="Unicorn Bicycle"/>}
                 <CardContent>
                   <Typography type="body1" component="p">
                     Welcome.............
