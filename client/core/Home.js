@@ -60,7 +60,7 @@ export default function Home({history}){
                 <Typography variant="h4" className={classes.title}>
                 A plateform to get best agricultural products from farmers near the consumer..............
                 </Typography>
-                
+
                 {<CardMedia className={classes.media} image={second} title="Unicorn Bicycle"/>}
                 <CardContent>
                   <Typography type="body1" component="p">
