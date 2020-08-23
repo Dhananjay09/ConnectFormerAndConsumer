@@ -2,6 +2,7 @@
   "name": "connectformerconsumer",
   "version": "1.0.0",
   "description": "A plateform to get the best agricultural foods in very low prize...",
+  "proxy": "http://localhost:8000",
   "keywords": [
     "react",
     "express",
@@ -21,7 +22,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "start": "NODE_ENV=production node ./dist/server.generated.js"
+    "start": "NODE_ENV=production node ./dist/server.generated.js",
+    "heroku-postbuild": "yarn && yarn run build"
   },
   "engines": {
     "node": "13.12.0",
