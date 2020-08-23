@@ -21,7 +21,8 @@ const signin = async (req, res) => {
     }
 
     const token = jwt.sign({
-      _id: user._id
+      _id: user._id,
+      name: user.name, email: user.email, pin : user.pin, address: user.address, type: user.type
     }, config.jwtSecret)
 
     res.cookie("t", token, {
@@ -48,7 +49,7 @@ const signout = (req, res) => {
   })
 }
 
-const requireSignin = expressJwt({ secret:  config.jwtSecret, algorithms: ['RS256'] })
+const requireSignin = expressJwt({ secret:  config.jwtSecret })
 
 const hasAuthorization = (req, res, next) => {
   const authorized = req.profile && req.auth && req.profile._id == req.auth._id
