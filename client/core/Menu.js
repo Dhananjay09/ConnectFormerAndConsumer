@@ -15,11 +15,8 @@ const isActive = (history, path) => {
     return {color: 'black'}
 }
 const Menu = withRouter(({history}) => (
-<<<<<<< HEAD
   <AppBar position="sticky" color="inherit">
-=======
-  <AppBar position="sticky" color="white">
->>>>>>> c0e4a6ee08fae9f27deb69904fe4e9b4099c07c7
+  
     <Toolbar>
       <Typography variant="h4" color="inherit">
         Best products
