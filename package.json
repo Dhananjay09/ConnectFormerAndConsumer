@@ -4,11 +4,14 @@
   "description": "A simple Pplateform to connect the consumers from farmers for best quality of the agricultural foods in a appropriate cost",
   "main": "template.js",
   "homepage": " https://dhananjay09.github.io/ConnectFormerAndConsumer",
-  "dependencies": {},
+  "dependencies": {
+    "babel-loader": "^8.1.0"
+  },
   "devDependencies": {
+    "@babel/core": "^7.11.4",
+    "@babel/preset-env": "^7.11.0",
     "gh-pages": "^3.1.0"
   },
-   
   "scripts": {
     "development": "nodemon",
     "build": "webpack --config webpack.config.client.production.js && webpack --mode=production --config webpack.config.server.js",
