@@ -57,12 +57,19 @@ export default function Home({history}){
           <Grid container spacing={8}>
             <Grid item xs={12}>
               <Card className={classes.card}>
+<<<<<<< HEAD
+                <Typography variant="h4" className={classes.title}>
+                A plateform to get best agricultural products from farmers near the consumer..............
+                </Typography>
+                
+=======
                 <Typography variant="h6" className={classes.title}>
                   Home Page
                 </Typography>
                 <Typography type="body1" component="p">
                     A plateform to get best agricultural products from farmers near the consumer.
                 </Typography>
+>>>>>>> c0e4a6ee08fae9f27deb69904fe4e9b4099c07c7
                 {<CardMedia className={classes.media} image={second} title="Unicorn Bicycle"/>}
                 <CardContent>
                   <Typography type="body1" component="p">

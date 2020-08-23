@@ -25,8 +25,15 @@ import clsx from 'clsx';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 const useStyles = makeStyles(theme => ({
   card: {
+<<<<<<< HEAD
+
     maxWidth:600,
     margin: 'auto',
+    maxHeight: 600,
+=======
+    maxWidth:600,
+    margin: 'auto',
+>>>>>>> c0e4a6ee08fae9f27deb69904fe4e9b4099c07c7
     marginBottom: theme.spacing(3),
     backgroundColor: 'rgba(0, 0, 0, 0.06)'
   },

@@ -11,6 +11,10 @@ import AddIcon from '@material-ui/icons/Add';
 import Button from '@material-ui/core/Button'
 const useStyles = makeStyles(theme => ({
   card: {
+<<<<<<< HEAD
+    maxWidth: 600,
+=======
+>>>>>>> c0e4a6ee08fae9f27deb69904fe4e9b4099c07c7
     margin: 'auto',
     paddingTop: 0,
     paddingBottom: theme.spacing(3)
