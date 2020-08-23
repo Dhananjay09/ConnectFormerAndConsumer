@@ -23,7 +23,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "start": "NODE_ENV=production node ./dist/server.generated.js",
-    "heroku-postbuild": "yarn && yarn run build"
+    "heroku-postbuild": "yarn"
   },
   "engines": {
     "node": "13.12.0",
