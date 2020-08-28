@@ -20,7 +20,7 @@
     "development": "nodemon",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "NODE_ENV=production node ./dist/server.generated.js",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false yarn && yarn build"
+    "heroku-postbuild": "yarn && yarn build"
   },
   "engines": {
     "node": "13.12.0",
